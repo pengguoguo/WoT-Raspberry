@@ -1,0 +1,42 @@
+{
+  "pi": {
+    "name": "WoT PI",
+    "description": "A WOT-Connected Raspberry PI. ",
+    "port": 18888,
+    "sensors": {
+      "pressure": {
+        "name": "BMP280 Digital Pressure Sensor",
+        "description": "An absolute barometric pressure sensor especially designed for mobile applications.",
+        "unit": "Pa",
+        "value": 0
+      },
+      "temperature": {
+        "name": "BMP280 Digital Pressure Sensor",
+        "description": "An absolute barometric pressure sensor especially designed for mobile applications.",
+        "unit": "DegC",
+        "value": 0
+      }
+    },
+    "actuators": {
+      "leds": {
+        "1": {
+          "name": "LED 1",
+          "value": false,
+          "gpio":"PCF8574-9"
+        },
+        "2": {
+          "name": "LED 2",
+          "value": false,
+          "gpio":"GPIO.25"
+        }
+      },
+      "beep": {
+        "1": {
+          "name": "buzze",
+          "value": false,
+          "gpio": "PCF8574-12"
+        }
+      }
+    }
+  }
+}
