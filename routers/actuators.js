@@ -14,11 +14,11 @@ router.route('/leds/:id').get(function(req,res,next){
     res.send(resources.pi.actuators.leds[req.params.id]);
 });
 
-router.route('beep').get(function(req,res,next){
+router.route('/beep').get(function(req,res,next){
    res.send(resources.pi.actuators.beep);
 });
 
-router.route('beep/:id').get(function(req,res,next){
+router.route('/beep/:id').get(function(req,res,next){
     res.send(resources.pi.actuators.beep[req.params.id]);
 });
 
