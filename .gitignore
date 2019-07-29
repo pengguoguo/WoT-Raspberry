@@ -28,5 +28,11 @@ out/
 # Mac
 .DS_Store
 
+#node
+.DS_Store
+node_modules/
+dist/
+npm-debug.log
+
 # gitignore
 .gitignore
