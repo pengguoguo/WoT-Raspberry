@@ -5,7 +5,7 @@ var interval;
 
 var model = resources.pi.actuators.leds['2'];
 var pluginName = model.name;
-var localParams = {'frequency':2000};
+var localParams = {2000};
 
 exports.start = function(params){
   localParams = params;
