@@ -22,7 +22,7 @@ exports.stop = function(){
 };
 
 function observe(what){
-  Object.object(what,function (changes) {
+  Object.observe(what,function (changes) {
     console.info('Change detected by plugin for %s ...',pluginName);
     switchOnOff(model.value);
   });
