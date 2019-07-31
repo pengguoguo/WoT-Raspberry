@@ -1,3 +1,5 @@
+import {Observable} from './../../node_modules/object-observe/dist/object-observer.js';
+
 var resources = require('./../../resources/model');
 
 var actuator;
@@ -6,6 +8,7 @@ var interval;
 var model = resources.pi.actuators.leds['2'];
 var pluginName = model.name;
 var localParams = 2000;
+
 
 exports.start = function(params){
   localParams = params;
@@ -22,9 +25,9 @@ exports.stop = function(){
 };
 
 function led_observe(what){
-  Object.observe(what,function (changes) {
-    console.info('Change detected by plugin for %s ...',pluginName);
-    switchOnOff(model.value);
+  Observable.observe(what,function (changes) {
+  console.info('Change detected by plugin for %s ...',pluginName);
+   switchOnOff(model.value);
   });
 };
 
