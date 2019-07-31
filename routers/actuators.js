@@ -12,6 +12,12 @@ router.route('/leds').get(function(req,res,next){
 
 router.route('/leds/:id').get(function(req,res,next){
     res.send(resources.pi.actuators.leds[req.params.id]);
+    next();
+}).put(function (req,res,next) {
+    var selectedLed   = resources.pi.actuators.leds[req.params.id];
+    selectedLed.value = req.body.value;
+    req.value         = selectedLed;
+    next();
 });
 
 router.route('/beep').get(function(req,res,next){
