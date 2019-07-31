@@ -3,8 +3,11 @@ var actuatorsRoutes = require('./../routers/actuators');
 var sensorRouters   = require('./../routers/sensors');
 var resources       = require('./../resources/model');
 var cors            = require('cors');
+var bodyParser      = require('body-parser');
 
 var app             = express();
+
+app.use(bodyParser.json());
 
 app.use(cors());
 
