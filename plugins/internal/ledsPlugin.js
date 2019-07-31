@@ -1,5 +1,3 @@
-import {Observable} from './../../node_modules/object-observe/dist/object-observer.js';
-
 var resources = require('./../../resources/model');
 
 var actuator;
@@ -24,11 +22,20 @@ exports.stop = function(){
   console.info('%s plugin stopped!',pluginName);
 };
 
+let proxy_handle = {
+  set:function (what,value) {
+    switchOnOff(model.value);
+  }
+};
 function led_observe(what){
-  Observable.observe(what,function (changes) {
-  console.info('Change detected by plugin for %s ...',pluginName);
-   switchOnOff(model.value);
-  });
+  //Object.observe(what,function (changes) {
+  //console.info('Change detected by plugin for %s ...',pluginName);
+  // switchOnOff(model.value);
+  //});
+  console.log(what);
+
+  let proxy = new Proxy({what},proxy_handle);
+  
 };
 
 function switchOnOff(value){
