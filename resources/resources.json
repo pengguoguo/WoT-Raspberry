@@ -27,7 +27,7 @@
         "2": {
           "name": "LED 2",
           "value": false,
-          "gpio":"GPIO.25"
+          "gpio":"25"
         }
       },
       "beep": {
