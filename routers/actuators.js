@@ -2,7 +2,7 @@ var express = require('express');
 var router  = express.Router();
 var resources = require('./../resources/model');
 
-var ledsPlugin = require('./plugins/internal/ledsPlugin');
+var ledsPlugin = require('./../plugins/internal/ledsPlugin');
 
 router.route('/').get(function(req,res,next){
    res.send(resources.pi.actuators);
