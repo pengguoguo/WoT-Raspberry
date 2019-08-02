@@ -39,7 +39,6 @@ exports.stop = function(){
 
 function switchOnOff(value){
   actuator.writeSync(value === true ? 1 : 0);
-  };
 };
 
 function connectHardware(){
