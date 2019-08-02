@@ -31,6 +31,8 @@ exports.start = function(params){
 
   //console.info(LED_Proxy);
 
+  LED_Proxy.value = true;
+
   connectHardware();
 
   return LED_Proxy;
