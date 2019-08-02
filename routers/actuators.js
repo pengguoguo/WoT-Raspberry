@@ -1,7 +1,7 @@
 var express = require('express');
 var router  = express.Router();
 var resources = require('./../resources/model');
-var led_proxy = require(./../wot-server);
+var led_proxy = require('./../wot-server');
 
 router.route('/').get(function(req,res,next){
    res.send(resources.pi.actuators);
