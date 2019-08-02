@@ -25,6 +25,8 @@ exports.start = function(params){
 
   //Observe the model for the LEDs
 
+  console.info(model);
+
   LED_Proxy = new Proxy(model,LED_Proxy_Handler);
 
   connectHardware();
