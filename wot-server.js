@@ -11,6 +11,8 @@ var server     = httpServer.listen(resources.pi.port,function () {
     console.info('WoT Pi is up and running on port %s',resources.pi.port);
 });
 
+console.info(ledproxy);
+
 module.exports = ledproxy;
 
 process.on('SIGINT',function(){

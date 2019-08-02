@@ -16,7 +16,7 @@ var LED_Proxy_Handler = {
   },
   get:function(model,value){
     console.info('led handle get function');
-    return model.value;
+    //return model.value;
   }
 };
 
@@ -29,7 +29,7 @@ exports.start = function(params){
 
   LED_Proxy = new Proxy(model,LED_Proxy_Handler);
 
-  console.info(LED_Proxy);
+  //console.info(LED_Proxy);
 
   connectHardware();
 
