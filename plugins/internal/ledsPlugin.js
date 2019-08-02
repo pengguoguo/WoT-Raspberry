@@ -29,6 +29,8 @@ exports.start = function(params){
 
   LED_Proxy = new Proxy(model,LED_Proxy_Handler);
 
+  console.info(LED_Proxy);
+
   connectHardware();
 
   return LED_Proxy;
