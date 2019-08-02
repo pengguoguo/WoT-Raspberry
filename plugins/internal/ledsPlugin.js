@@ -9,7 +9,7 @@ var localParams = 2000;
 
 var LED_Proxy;
 
-let LED_Proxy_Handler = {
+var LED_Proxy_Handler = {
   set:function(model,value){
     console.info(model);
     switchOnOff(model.value);
@@ -24,6 +24,8 @@ exports.start = function(params){
   localParams = params;
 
   //Observe the model for the LEDs
+
+
 
   LED_Proxy = new Proxy(model,LED_Proxy_Handler);
 
