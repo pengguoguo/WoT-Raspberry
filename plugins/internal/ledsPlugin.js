@@ -39,7 +39,9 @@ exports.stop = function(){
 };
 
 exports.ledproxy_process = function (params) {
-  LED_Proxy = params;
+  console.info('in ledproxy_process function');
+  console.info(params);
+  LED_Proxy.value = params.value;
 }
 
 function connectHardware(){
