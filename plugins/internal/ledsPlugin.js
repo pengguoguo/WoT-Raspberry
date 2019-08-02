@@ -29,11 +29,9 @@ exports.start = function(params){
 
   LED_Proxy = new Proxy(model,LED_Proxy_Handler);
 
-  //console.info(LED_Proxy);
+  connectHardware();
 
   LED_Proxy.value = true;
-
-  connectHardware();
 
   return LED_Proxy;
 };
@@ -43,16 +41,16 @@ exports.stop = function(){
   console.info('%s plugin stopped!',pluginName);
 };
 
-function switchOnOff(value){
-  actuator.write(value === true ? 1 : 0,function () {
-    
-  });
-};
-
 function connectHardware(){
   var Gpio = require('onoff').Gpio;
   actuator = new Gpio(model.gpio,'out');
 
   console.info('Hardware %s actuator started!',pluginName);
+};
+
+function switchOnOff(value){
+  actuator.write(value === true ? 1 : 0,function () {
+
+  });
 };
 
