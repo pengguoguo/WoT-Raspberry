@@ -49,8 +49,6 @@ function connectHardware(){
 };
 
 function switchOnOff(value){
-  actuator.write(value === true ? 1 : 0,function () {
-
-  });
+  actuator.writeSync(1);
 };
 
