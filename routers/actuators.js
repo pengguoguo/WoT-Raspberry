@@ -22,7 +22,7 @@ router.route('/leds/:id').get(function(req,res,next){
     console.info(selectedLed);
 
     req.value         = selectedLed;
-    led_proxy.value   = selectedLed.value;
+    led_proxy         = selectedLed;
 
     console.info(led_proxy);
 
