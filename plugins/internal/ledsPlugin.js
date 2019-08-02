@@ -11,11 +11,11 @@ var LED_Proxy;
 
 var LED_Proxy_Handler = {
   set:function(model,value){
-    console.info(model);
+
     switchOnOff(model.value);
   },
   get:function(model,value){
-    console.info(model.value);
+
     return model.value;
   }
 };
@@ -40,7 +40,7 @@ exports.stop = function(){
 };
 
 function switchOnOff(value){
-  actuator.write(value == true ? 1 : 0,function(){
+  actuator.write(value === true ? 1 : 0,function(){
     console.info('Changed value of %s to %s',pluginName,value);
   });
 };
@@ -48,7 +48,7 @@ function switchOnOff(value){
 function connectHardware(){
   var Gpio = require('onoff').Gpio;
   actuator = new Gpio(model.gpio,'out');
-  actuator.writeSync(1);
+
   console.info('Hardware %s actuator started!',pluginName);
 };
 
