@@ -53,6 +53,6 @@ function connectHardware(){
 
 function switchOnOff(value){
   console.info(value);
-  actuator.writeSync(value);
+  actuator.writeSync(value === true ? 1 , 0);
 };
 
