@@ -13,4 +13,8 @@ var server     = httpServer.listen(resources.pi.port,function () {
 
 module.exports = ledproxy;
 
-
+process.on('SIGINT',function(){
+   ledsPlugin.stop();
+   console.log('Bye,bye!');
+   process.exit();
+});
