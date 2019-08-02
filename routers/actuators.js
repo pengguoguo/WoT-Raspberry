@@ -20,6 +20,8 @@ router.route('/leds/:id').get(function(req,res,next){
     console.info('Changed LED %s value to %s',req.params.id,selectedLed.value);
     req.value         = selectedLed;
     led_proxy.value   = req.value;
+
+    console.info(led_proxy.value);
     next();
 });
 
