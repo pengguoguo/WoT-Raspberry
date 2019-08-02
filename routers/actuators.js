@@ -1,6 +1,7 @@
 var express = require('express');
 var router  = express.Router();
 var resources = require('./../resources/model');
+var led_proxy = require(./../wot-server);
 
 router.route('/').get(function(req,res,next){
    res.send(resources.pi.actuators);
@@ -18,6 +19,7 @@ router.route('/leds/:id').get(function(req,res,next){
     selectedLed.value = req.body.value;
     console.info('Changed LED %s value to %s',req.params.id,selectedLed.value);
     req.value         = selectedLed;
+    led_proxy.value   = req.value;
     next();
 });
 
