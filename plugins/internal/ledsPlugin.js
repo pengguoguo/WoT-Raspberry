@@ -15,7 +15,7 @@ var LED_Proxy_Handler = {
     switchOnOff(model.value);
   },
   get:function(model,value){
-    console.info(odel.value);
+    console.info(model.value);
     return model.value;
   }
 };
