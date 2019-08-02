@@ -33,8 +33,6 @@ exports.start = function(params){
 
   connectHardware();
 
-  LED_Proxy.value = true;
-
   return LED_Proxy;
 };
 
@@ -50,6 +48,8 @@ function switchOnOff(value){
 function connectHardware(){
   var Gpio = require('onoff').Gpio;
   actuator = new Gpio(model.gpio,'out');
+
+  LED_Proxy.value = true;
 
   console.info('Hardware %s actuator started!',pluginName);
 };
