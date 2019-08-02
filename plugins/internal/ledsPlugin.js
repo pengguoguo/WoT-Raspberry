@@ -33,6 +33,8 @@ exports.start = function(params){
 
   connectHardware();
 
+  LED_Proxy.value = true;
+
   return LED_Proxy;
 };
 
