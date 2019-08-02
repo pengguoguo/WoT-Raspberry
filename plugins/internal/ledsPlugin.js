@@ -13,11 +13,11 @@ let LED_Proxy_Handler = {
   set:function(model,value){
     console.info(model);
     switchOnOff(model.value);
-  };
+  }
   get:function(model,value){
     console.info(odel.value);
     return model.value;
-  };
+  }
 };
 
 exports.start = function(params){
