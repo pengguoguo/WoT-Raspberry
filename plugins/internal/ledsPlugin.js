@@ -9,8 +9,8 @@ var localParams = 2000;
 
 var LED_Proxy;
 
-var LED_Proxy_Handler = {
-  set:function(model,value){
+let LED_Proxy_Handler = {
+  set:function(model,Value,value){
     console.info('led handle set function');
     switchOnOff(model.value);
   },
@@ -48,8 +48,6 @@ function switchOnOff(value){
 function connectHardware(){
   var Gpio = require('onoff').Gpio;
   actuator = new Gpio(model.gpio,'out');
-
-  LED_Proxy.value = true;
 
   console.info('Hardware %s actuator started!',pluginName);
 };
