@@ -10,9 +10,10 @@ var localParams = 2000;
 var LED_Proxy;
 
 let LED_Proxy_Handler = {
-  set:function(model,Value,value){
+  set:function(model,vValue,value){
     console.info('led handle set function');
     switchOnOff(model.value);
+    return true;
   },
   get:function(model,value){
     console.info('led handle get function');
@@ -24,22 +25,22 @@ exports.start = function(params){
   localParams = params;
 
   //Observe the model for the LEDs
-
   console.info(model);
 
   LED_Proxy = new Proxy(model,LED_Proxy_Handler);
 
   connectHardware();
 
-  LED_Proxy.value = true;
-
-  return LED_Proxy;
 };
 
 exports.stop = function(){
   actuator.unexport();
   console.info('%s plugin stopped!',pluginName);
 };
+
+exports.ledproxy_process = function (params) {
+  LED_Proxy = params;
+}
 
 function connectHardware(){
   var Gpio = require('onoff').Gpio;
