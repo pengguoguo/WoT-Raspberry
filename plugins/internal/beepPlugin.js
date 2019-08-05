@@ -47,12 +47,12 @@ function connectHardware(){
         io: new RaspiIO()
     });
 
+//    board.on('ready',function(){
+//      var expander = new five.Expander({
+//    controller: "PCF8574",
+//          address: 0x20
+//      });
     board.on('ready',function(){
-      var expander = new five.Expander({
-          controller: "PCF8574",
-          address: 0x20
-      });
-
       var barometer = new five.Barometer({
           controller: "BMP280"
       });
