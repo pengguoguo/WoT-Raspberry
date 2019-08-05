@@ -42,10 +42,12 @@ function connectHardware(){
     //johnny-five, control pcf8574 chip
     var five  = require('johnny-five');
 
+    var virtual;
+
     var board = new five.Board();
 
     board.on("ready",function(){
-        var virtual = new five.Board.Virtual(
+        virtual = new five.Board.Virtual(
             new five.Expander({
                 controller:"PCF8574",
                 address:0x20
