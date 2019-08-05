@@ -39,19 +39,16 @@ exports.beepProxyHandleProcess = function (params) {
 }
 
 function connectHardware(){
-    const Raspi = require('raspi-io').RaspiIO;
+    const RaspiIO = require('raspi-io').RaspiIO;
 
     const five  = require('johnny-five');
 
     const board = new five.Board({
-        io: new Raspi()
+        io: new RaspiIO()
     });
 
     board.on('ready',() => {
-        new five.Pin('SDA');
-        //new five.Pin('SCL');
-
-        board.io.i2cWrite(0x20,1,0x7F);
+        (new five.Expander('PCF8574')).digitalWrite(12,0);
     });
 
 
