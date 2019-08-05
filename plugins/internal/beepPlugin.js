@@ -47,8 +47,22 @@ function connectHardware(){
         io: new RaspiIO()
     });
 
-    board.on('ready',() => {
-        (new five.Expander('PCF8574')).digitalWrite(12,0);
+    board.on('ready',function(){
+      var expander = new five.Expander({
+          controller: "PCF8574",
+          address: 0x20
+      });
+
+      var barometer = new five.Barometer({
+          controller: "BMP280"
+      });
+
+        barometer.on("change", function() {
+            console.log("Barometer");
+            console.log("  pressure     : ", this.pressure);
+            console.log("--------------------------------------");
+        });
+
     });
 
 
