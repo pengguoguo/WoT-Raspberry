@@ -1,7 +1,6 @@
 var resources = require('./../../resources/model');
 
 var actuator;
-var interval;
 
 var model = resources.pi.actuators.leds['2'];
 var pluginName = model.name;

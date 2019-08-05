@@ -22,7 +22,7 @@
         "1": {
           "name": "LED 1",
           "value": false,
-          "gpio":"PCF8574-9"
+          "gpio":"9"
         },
         "2": {
           "name": "LED 2",
@@ -34,7 +34,7 @@
         "1": {
           "name": "buzze",
           "value": false,
-          "gpio": "PCF8574-12"
+          "gpio": "12"
         }
       }
     }
