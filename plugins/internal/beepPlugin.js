@@ -39,6 +39,20 @@ exports.beepProxyHandleProcess = function (params) {
 }
 
 function connectHardware(){
+    const Raspi = require('raspi-io').RaspiIO;
+
+    const five  = require('johnny-five');
+
+    const board = new five.Board({
+        io:new Raspi()
+    });
+
+    board.on('ready',() => {
+        new five.Pin('SDA');
+        new five.Pin('SCL');
+
+        board.io.i2cWrite(0x20,1,0x7F);
+    });
 
 
     console.info('Hardware %s actuator started!',pluginName);
