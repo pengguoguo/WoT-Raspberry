@@ -54,10 +54,8 @@ function connectHardware(){
     });
 
     var beep = new five.Leds(
-        Array.from({ length : 8}, function(_,12){
             return new five.Led({pin:12,board:virtual});
-            })
-        );
+            );
 
     beep.on();
 
