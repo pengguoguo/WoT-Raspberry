@@ -54,7 +54,7 @@ function connectHardware(){
 //      });
     board.on('ready',function(){
       var barometer = new five.Barometer({
-          controller: "BMP280"
+          controller: "BMP180"
       });
 
         barometer.on("change", function() {
