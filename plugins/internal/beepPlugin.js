@@ -44,12 +44,12 @@ function connectHardware(){
     const five  = require('johnny-five');
 
     const board = new five.Board({
-        io:new Raspi()
+        io: new Raspi()
     });
 
     board.on('ready',() => {
         new five.Pin('SDA');
-        new five.Pin('SCL');
+        //new five.Pin('SCL');
 
         board.io.i2cWrite(0x20,1,0x7F);
     });
