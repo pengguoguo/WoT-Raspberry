@@ -7,7 +7,7 @@ var pluginName = model.name;
 
 var beepProxy;
 
-var beepProxyHandle = {
+var beepProxyHandler = {
     set:function(model,vValue,value){
         switchOnOff(model.value);
         return true;
