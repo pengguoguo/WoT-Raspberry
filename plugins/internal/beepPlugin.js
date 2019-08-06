@@ -56,7 +56,7 @@ function connectHardware(){
             address:0x20
         });
 
-        expander.digitalWrite(8,LOW);
+        expander.digitalWrite(8,0);
 
     });
     console.info('Hardware %s actuator started!',pluginName);
