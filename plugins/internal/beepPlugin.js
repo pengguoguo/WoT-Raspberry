@@ -51,13 +51,12 @@ function connectHardware(){
 
         console.info("in board function when board's status is ready");
 
-        var virtual = new five.board.Virtual(
-            new five.Expander("PCF8574")
-        );
+        var expander = new five.Expander({
+            controller:"PCF8574",
+            address:0x20
+        });
 
-        var led = new five.Led({pin: 12,board: virtual});
-
-        led.on();
+        expander.digitalWrite(8,LOW);
 
     });
     console.info('Hardware %s actuator started!',pluginName);
