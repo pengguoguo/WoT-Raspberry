@@ -55,7 +55,7 @@ function connectHardware(){
             new five.Expander("PCF8574")
         );
 
-        var led = new five.Led({pin:12,board:virtual});
+        var led = new five.Led({pin: 12,board: virtual});
 
         led.on();
 
