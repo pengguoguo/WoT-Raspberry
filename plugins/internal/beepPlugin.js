@@ -49,7 +49,7 @@ function connectHardware(){
 
     board.on('ready',function(){
 
-        console.info('in board function when board's status is ready);
+        console.info("in board function when board's status is ready");
 
         var expander = new five.Expander({
             controller: "PCF8574",
