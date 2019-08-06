@@ -55,7 +55,7 @@ function connectHardware(){
             controller:"PCF8574",
             address:0x20
         });
-
+        expander.initialize();
         expander.digitalWrite(8,0);
 
     });
