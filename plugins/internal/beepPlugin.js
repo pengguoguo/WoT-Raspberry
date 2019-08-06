@@ -47,25 +47,16 @@ function connectHardware(){
         io: new RaspiIO()
     });
 
-//    board.on('ready',function(){
-//      var expander = new five.Expander({
-//    controller: "PCF8574",
-//          address: 0x20
-//      });
     board.on('ready',function(){
-      var barometer = new five.Barometer({
-          controller: "BMP180"
-      });
 
-        barometer.on("change", function() {
-            console.log("Barometer");
-            console.log("  pressure     : ", this.pressure);
-            console.log("--------------------------------------");
+        console.info('in board function when board's status is ready);
+
+        var expander = new five.Expander({
+            controller: "PCF8574",
+            address:0x20
         });
 
-    });
-
-
+    }
     console.info('Hardware %s actuator started!',pluginName);
 };
 

@@ -36,3 +36,4 @@ npm-debug.log
 
 # gitignore
 .gitignore
+package-lock.json
