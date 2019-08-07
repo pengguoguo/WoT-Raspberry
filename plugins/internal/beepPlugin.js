@@ -54,7 +54,7 @@ function connectHardware(){
 
         var virtual  = new five.Board.Virtual(
             new five.Expander({
-                controller: "PCF8754",
+                controller: "PCF8574",
                 address: 0x20
             })
         );
