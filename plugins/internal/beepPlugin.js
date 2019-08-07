@@ -53,10 +53,10 @@ function connectHardware(){
         console.info("in board function when board's status is ready");
 
         var virtual  = new five.Board.Virtual(
-            return new five.Expander({
+            new five.Expander({
                 controller: "PCF8754",
                 address: 0x20
-            });
+            })
         );
 
 
