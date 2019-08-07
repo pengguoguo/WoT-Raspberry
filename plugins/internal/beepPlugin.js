@@ -39,9 +39,10 @@ exports.beepProxyHandleProcess = function (params) {
 }
 
 function connectHardware(){
+
     const RaspiIO = require('raspi-io').RaspiIO;
 
-    const five  = require('johnny-five');
+    const five    = require('johnny-five');
 
     const board = new five.Board({
         io: new RaspiIO()
@@ -51,20 +52,13 @@ function connectHardware(){
 
         console.info("in board function when board's status is ready");
 
-        var expander = new five.Expander({
-            controller:"PCF8574",
-            address:0x20
-        });
-        expander.initialize({address:0x20});
-        expander.digitalWrite(8,0);
-        expander.digitalWrite(7,0);
-        expander.digitalWrite(6,0);
-        expander.digitalWrite(5,0);
-        expander.digitalWrite(4,0);
-        expander.digitalWrite(3,0);
-        expander.digitalWrite(2,0);
-        expander.digitalWrite(1,0);
-        expander.digitalWrite(0,0);
+        var virtual  = new five.Board.Virtual(
+            return new five.Expander({
+                controller: "PCF8754",
+                address: 0x20
+            });
+        );
+
 
     });
     console.info('Hardware %s actuator started!',pluginName);
