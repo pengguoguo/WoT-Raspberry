@@ -56,7 +56,7 @@ function connectHardware(){
         led.on();
 
         this.i2cWrite(0x20,0xEF);
-        this.i2cWrite(0xEF);
+
         var virtual = new five.Board.Virtual(
             new five.Expander('PCF8574')
         );
