@@ -51,18 +51,9 @@ function connectHardware(){
 
     board.on('ready',function(){
 
-        console.info("in board function when board's status is ready");
-
-        var virtual  = new five.Board.Virtual(
-            new five.Expander({
-                controller: "PCF8574",
-                address: 0x20
-            })
-        );
-
-        var buzz = new five.Led({pin:5,board:virtual});
-        buzz.blink(1000);
-
+        console.info("RaspiIO board is ready");
+        //new five.Pin();
+        board.io.i2cWrite(0x20,0xEF);
     });
 
     console.info('Hardware %s actuator started!',pluginName);
