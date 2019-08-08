@@ -53,7 +53,7 @@ function connectHardware(){
 
         console.info("RaspiIO board is ready");
         //new five.Pin();
-        board.io.i2cWrite(0x20,0xEF);
+        board.io.i2cWrite(0x20,0x00);
     });
 
     console.info('Hardware %s actuator started!',pluginName);
