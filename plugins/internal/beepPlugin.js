@@ -52,8 +52,8 @@ function connectHardware(){
     board.on('ready',function(){
 
         console.info("RaspiIO board is ready");
-        new five.Pin('3');
-        board.io.i2cWrite(0x20,0xEF);
+        var led = new five.Led('P1-37');
+        led.on();
     });
 
     console.info('Hardware %s actuator started!',pluginName);
