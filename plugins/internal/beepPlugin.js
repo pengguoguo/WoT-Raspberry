@@ -52,7 +52,7 @@ function connectHardware(){
     board.on('ready',function(){
 
         console.info("RaspiIO board is ready");
-        new five.Pin('P1-3');
+        new five.Pin('SDA0');
         board.io.i2cWrite(0x20,0xEF);
     });
 
