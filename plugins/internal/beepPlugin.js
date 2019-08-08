@@ -59,8 +59,8 @@ function connectHardware(){
             })
         );
 
-        var buzz = new five.Led({pin:8,board:virtual});
-        buzz.off();
+        var buzz = new five.Led({pin:4,board:virtual});
+        buzz.blink(1000);
 
     });
 
