@@ -45,7 +45,8 @@ function connectHardware(){
     const five    = require('johnny-five');
 
     const board = new five.Board({
-        io: new RaspiIO()
+        io: new RaspiIO(),
+        repl:false
     });
 
     board.on('ready',function(){
@@ -59,7 +60,7 @@ function connectHardware(){
             })
         );
 
-        var buzz = new five.Led({pin:4,board:virtual});
+        var buzz = new five.Led({pin:5,board:virtual});
         buzz.blink(1000);
 
     });
