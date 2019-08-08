@@ -62,9 +62,8 @@ function connectHardware(){
         var buzz = new five.Led({pin:7,board:virtual});
         buzz.off();
 
-        })
-
     });
+
     console.info('Hardware %s actuator started!',pluginName);
 };
 
