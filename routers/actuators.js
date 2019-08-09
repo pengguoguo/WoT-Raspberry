@@ -24,11 +24,11 @@ router.route('/leds/:id').get(function(req,res,next){
 
     selectedLed.value = req.body.value;
 
-    ledsPlugin.ledproxy_process(selectedLed);
+    //ledsPlugin.ledproxy_process(selectedLed);
 
     req.value         = selectedLed;
 
-    /*
+
     switch(selectedLed.gpio)
     {
         case 26:
@@ -37,7 +37,7 @@ router.route('/leds/:id').get(function(req,res,next){
         case  9:
             break;
     }
-    */
+
 
     next();
 });
