@@ -51,6 +51,7 @@ router.route('/beep/:id').put(function(req,res,next){
 
     var selectedBeep = resources.pi.actuators.beep[req.params.id];
 
+    selectedBeep     = req.body.value;
 
     switch(req.params.id)
     {
