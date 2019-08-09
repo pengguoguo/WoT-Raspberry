@@ -31,7 +31,8 @@ router.route('/leds/:id').get(function(req,res,next){
         case '2':
             ledsPlugin.ledproxy_process(selectedLed);
             break;
-        case  '1':
+        case '1':
+            beepPlugin.ledProxyHandleProcess(selectedLed);
             break;
     }
 

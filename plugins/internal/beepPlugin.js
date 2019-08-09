@@ -2,6 +2,8 @@ var resources = require('./../../resources/model');
 
 var model      = resources.pi.actuators.beep['1'];
 
+var ledModel   = resources.pi.actuators.leds['1'];
+
 var pluginName = model.name;
 
 
@@ -9,9 +11,21 @@ var pcf;
 
 var beepProxy;
 
+var ledProxy;
+
 var beepProxyHandler = {
     set:function(model,vValue,value){
         switchOnOff(model.value);
+        return true;
+    },
+    get:function(model,value){
+        return model.value;
+    }
+};
+
+var ledProxyHandler = {
+    set:function(model,vValue,value){
+        ledSwitchOnoff(model.value);
         return true;
     },
     get:function(model,value){
@@ -24,11 +38,14 @@ exports.start = function(){
 
     beepProxy = new Proxy(model,beepProxyHandler);
 
+    ledProxy  = new Proxy(lcdModel,ledProxyHandler);
+
     connectHardware();
 };
 
 exports.stop = function(){
     pcf.setPin(7,true);
+    pcf.setPin(4,false);
     pcf.disableInterrupt();
 };
 
@@ -36,6 +53,10 @@ exports.beepProxyHandleProcess = function (params) {
     console.info('in beepProxyProcess function');
     console.info(params);
     beepProxy.value = params.value;
+}
+
+exports.ledProxyHandleProcess = function(params){
+    ledProxy.value = params.value;
 }
 
 function connectHardware(){
@@ -73,6 +94,8 @@ function connectHardware(){
     pcf.enableInterrupt(29);
 
     pcf.outputPin(4,true,false);
+
+    //inverted :
     pcf.outputPin(7,true,false);
 
 };
@@ -80,3 +103,7 @@ function connectHardware(){
 function switchOnOff(value){
     pcf.setPin(7,value);
 };
+
+function ledSwitchOnoff(value){
+    pcf.setPin(4,value);
+}
