@@ -10,7 +10,7 @@ var LED_Proxy;
 
 let LED_Proxy_Handler = {
   set:function(model,vValue,value){
-    console.info('led handle set function');
+
     switchOnOff(model.value);
     return true;
   },
@@ -38,8 +38,7 @@ exports.stop = function(){
 };
 
 exports.ledproxy_process = function (params) {
-  console.info('in ledproxy_process function');
-  console.info(params);
+
   LED_Proxy.value = params.value;
 }
 
@@ -51,7 +50,7 @@ function connectHardware(){
 };
 
 function switchOnOff(value){
-  console.info(value);
+
   actuator.writeSync(value === true ? 1 : 0);
 };
 

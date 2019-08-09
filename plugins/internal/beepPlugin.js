@@ -20,12 +20,10 @@ var beepProxyHandler = {
 
 exports.start = function(){
     //Observe the model for the LEDs
-    console.info(model);
 
     beepProxy = new Proxy(model,beepProxyHandler);
 
     connectHardware();
-
 };
 
 exports.stop = function(){
@@ -73,13 +71,11 @@ function connectHardware(){
     // Enable interrupt detection on BCM pin
     pcf.enableInterrupt(29);
 
-    pcf.outputPin(4,true,true);
+    pcf.outputPin(4,true,false);
     pcf.outputPin(7,true,false);
 
-    console.info('Hardware %s actuator started!',pluginName);
 };
 
 function switchOnOff(value){
-    console.info(value);
     pcf.setPin(7,value);
 };
