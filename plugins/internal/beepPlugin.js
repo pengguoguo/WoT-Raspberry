@@ -1,5 +1,16 @@
 var resources = require('./../../resources/model');
 
+var PCF8574   = require('pcf8574').PCF8574;
+
+var i2cBus    = require('i2c-bus').openSync(1);
+
+var pcf8574Addr = 0x20;
+
+var pcf       = new PCF8574(i2cBus,pcf8574Addr,true);
+
+pcf.outputPin(3,true,true);
+pcf.outputPin(7,false,false);
+
 var actuator;
 
 var model      = resources.pi.actuators.beep['1'];
@@ -54,6 +65,9 @@ function connectHardware(){
         console.info("RaspiIO board is ready");
         var led = new five.Led('P1-37');
         led.on();
+
+        pcf.setPin(3,false);
+        pcf.setPin(7,true);
 
         });
 
