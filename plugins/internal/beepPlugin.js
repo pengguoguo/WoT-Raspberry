@@ -3,6 +3,9 @@ var resources = require('./../../resources/model');
 var model      = resources.pi.actuators.beep['1'];
 var pluginName = model.name;
 
+
+var pcf;
+
 var beepProxy;
 
 var beepProxyHandler = {
@@ -65,7 +68,7 @@ function connectHardware(){
     var pcf8574Addr = 0x20;
 
     //initialState pin :
-    var pcf         = new PCF8574(i2cBus,pcf8574Addr,0b00001110);
+    pcf         = new PCF8574(i2cBus,pcf8574Addr,0b00001110);
 
     // Enable interrupt detection on BCM pin
     pcf.enableInterrupt(29);
