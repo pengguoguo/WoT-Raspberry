@@ -32,10 +32,10 @@ router.route('/leds/:id').get(function(req,res,next){
 
     switch(ledid)
     {
-        case 2:
+        case '2':
             ledsPlugin.ledproxy_process(selectedLed);
             break;
-        case  1:
+        case  '1':
             break;
     }
 
