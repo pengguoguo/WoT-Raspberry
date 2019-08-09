@@ -20,13 +20,9 @@ router.route('/leds/:id').get(function(req,res,next){
 
     var selectedLed   = resources.pi.actuators.leds[req.params.id];
 
-    console.info(req.body.value);
-
     selectedLed.value = req.body.value;
 
     req.value         = selectedLed;
-
-    console.info(req.params.id);
 
     var ledid = req.params.id;
 
@@ -55,12 +51,10 @@ router.route('/beep/:id').put(function(req,res,next){
 
     var selectedBeep = resources.pi.actuators.beep[req.params.id];
 
-    console.info(selectedBeep.gpio);
 
-    switch(selectedBeep.gpio)
+    switch(req.params.id)
     {
-        case 7:
-            console.info("beep actuators");
+        case '1':
             beepPlugin.beepProxyHandleProcess(selectedBeep);
             break;
     }
