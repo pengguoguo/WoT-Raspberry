@@ -24,7 +24,8 @@ function connectHardware(){
     var five  = require("johnny-five");
     var raspi = require("raspi-io").RaspiIO;
     board = new five.Board({
-        io:raspi()
+        io:new raspi(),
+        repl:false
     });
 };
 
