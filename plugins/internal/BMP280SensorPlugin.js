@@ -26,7 +26,7 @@ function connectHardware(){
 
     board.on('ready',function(){
         var bmp280Pressure = new five.IMU({
-            controller:'BMP280'
+            controller: 'BMP180'
         });
 
         bmp280Pressure.on("data",function () {
