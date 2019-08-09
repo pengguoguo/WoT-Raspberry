@@ -29,7 +29,7 @@ function connectHardware(){
             controller: 'BMP180'
         });
 
-        bmp280Pressure.on("data",function () {
+        bmp280Pressure.on("change",function () {
             console.info(this.altitude);
             console.info(this.pressure);
             console.info(this.temperature);
