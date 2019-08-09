@@ -21,15 +21,15 @@ exports.stop = function(params) {
 };
 
 function connectHardware(){
-    var five  = require("johnny-five");
-    var raspi = require("raspi-io").RaspiIO;
+    var five  = require('johnny-five');
+    var raspi = require('raspi-io').RaspiIO;
     board = new five.Board({
         io:new raspi(),
         repl:false
     });
 };
 
-board.on("ready",function(){
+board.on('ready',function(){
     bmp280Pressure = new five.IMU({
         controller:'BMP280'
     });
