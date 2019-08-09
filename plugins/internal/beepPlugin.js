@@ -73,7 +73,7 @@ function connectHardware(){
     pcf.enableInterrupt(29);
 
     pcf.outputPin(4,true,false);
-    pcf.outputPin(7,false,false);
+    pcf.outputPin(7,true,true);
 
 };
 
