@@ -28,11 +28,11 @@ function connectHardware(){
         var bmp280Pressure = new five.IMU({
             controller:'BMP280'
         });
-    });
 
-    bmp280Pressure.on("data",function () {
-        console.info(this.altitude);
-        console.info(this.pressure);
-        console.info(this.temperature);
+        bmp280Pressure.on("data",function () {
+            console.info(this.altitude);
+            console.info(this.pressure);
+            console.info(this.temperature);
+        });
     });
 };
