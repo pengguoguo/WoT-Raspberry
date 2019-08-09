@@ -24,7 +24,6 @@ exports.start = function(params){
   localParams = params;
 
   //Observe the model for the LEDs
-  console.info(model);
 
   LED_Proxy = new Proxy(model,LED_Proxy_Handler);
 
@@ -34,7 +33,6 @@ exports.start = function(params){
 
 exports.stop = function(){
   actuator.unexport();
-  console.info('%s plugin stopped!',pluginName);
 };
 
 exports.ledproxy_process = function (params) {
@@ -45,8 +43,6 @@ exports.ledproxy_process = function (params) {
 function connectHardware(){
   var Gpio = require('onoff').Gpio;
   actuator = new Gpio(model.gpio,'out');
-
-  console.info('Hardware %s actuator started!',pluginName);
 };
 
 function switchOnOff(value){

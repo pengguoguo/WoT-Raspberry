@@ -50,8 +50,7 @@ exports.stop = function(){
 };
 
 exports.beepProxyHandleProcess = function (params) {
-    console.info('in beepProxyProcess function');
-    console.info(params);
+
     beepProxy.value = params.value;
 }
 
