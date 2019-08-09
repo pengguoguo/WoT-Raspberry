@@ -1,6 +1,7 @@
 var resources = require('./../../resources/model');
 
 var model      = resources.pi.actuators.beep['1'];
+
 var pluginName = model.name;
 
 
@@ -72,7 +73,7 @@ function connectHardware(){
     pcf.enableInterrupt(29);
 
     pcf.outputPin(4,true,false);
-    pcf.outputPin(7,true,false);
+    pcf.outputPin(7,false,false);
 
 };
 
