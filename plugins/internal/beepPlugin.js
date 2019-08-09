@@ -49,19 +49,13 @@ function connectHardware(){
         repl:false
     });
 
-    board.on('ready',function(){
+    board.on('ready',function() {
 
         console.info("RaspiIO board is ready");
         var led = new five.Led('P1-37');
         led.on();
 
-        this.i2cWrite(0x20,0xEF);
-
-        var virtual = new five.Board.Virtual(
-            new five.Expander('PCF8574')
-        );
-
-    });
+        });
 
     console.info('Hardware %s actuator started!',pluginName);
 };
