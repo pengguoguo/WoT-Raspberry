@@ -25,7 +25,7 @@ function connectHardware(){
     });
 
     board.on('ready',function(){
-        var bmp280Pressure = new five.IMU({
+        var bmp280Pressure = new five.Barometer({
             controller: 'BMP180'
         });
 
