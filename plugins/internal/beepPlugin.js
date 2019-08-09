@@ -1,18 +1,5 @@
 var resources = require('./../../resources/model');
 
-var PCF8574   = require('pcf8574').PCF8574;
-
-var i2cBus    = require('i2c-bus').openSync(1);
-
-var pcf8574Addr = 0x20;
-
-var pcf       = new PCF8574(i2cBus,pcf8574Addr,true);
-
-pcf.outputPin(4,true,true);
-pcf.outputPin(7,true,false);
-
-var actuator;
-
 var model      = resources.pi.actuators.beep['1'];
 var pluginName = model.name;
 
@@ -39,8 +26,8 @@ exports.start = function(){
 };
 
 exports.stop = function(){
-    actuator.unexport();
-    console.info('%s plugin stopped!',pluginName);
+    pcf.setPin(7,true);
+    pcf.disableInterrupt();
 };
 
 exports.beepProxyHandleProcess = function (params) {
@@ -51,29 +38,45 @@ exports.beepProxyHandleProcess = function (params) {
 
 function connectHardware(){
 
-    const RaspiIO = require('raspi-io').RaspiIO;
+    //const RaspiIO = require('raspi-io').RaspiIO;
 
-    const five    = require('johnny-five');
+    //const five    = require('johnny-five');
 
-    const board = new five.Board({
-        io: new RaspiIO(),
-        repl:false
-    });
+    //const board = new five.Board({
+    //    io: new RaspiIO(),
+    //    repl:false
+    //});
 
-    board.on('ready',function() {
+    //board.on('ready',function() {
 
-        console.info("RaspiIO board is ready");
-        var led = new five.Led('P1-37');
-        led.on();
+    //    console.info("RaspiIO board is ready");
 
-        pcf.setPin(4,true);
+        //var led = new five.Led('P1-37');
+        //led.on();
 
-        });
+        //pcf.setPin(4,true);
+
+    //    });
+
+    var PCF8574     = require('pcf8574').PCF8574;
+
+    var i2cBus      = require('i2c-bus').openSync(1);
+
+    var pcf8574Addr = 0x20;
+
+    //initialState pin :
+    var pcf         = new PCF8574(i2cBus,pcf8574Addr,0b00001110);
+
+    // Enable interrupt detection on BCM pin
+    pcf.enableInterrupt(29);
+
+    pcf.outputPin(4,true,true);
+    pcf.outputPin(7,true,false);
 
     console.info('Hardware %s actuator started!',pluginName);
 };
 
 function switchOnOff(value){
     console.info(value);
-    actuator.writeSync(value === true ? 1 : 0);
+    pcf.setPin(7,value);
 };

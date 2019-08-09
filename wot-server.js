@@ -16,6 +16,7 @@ var server     = httpServer.listen(resources.pi.port,function () {
 
 process.on('SIGINT',function(){
    ledsPlugin.stop();
+   beepPlugin.stop();
    console.log('Bye,bye!');
    process.exit();
 });

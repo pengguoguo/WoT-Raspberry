@@ -3,6 +3,7 @@ var router  = express.Router();
 var resources = require('./../resources/model');
 
 var ledsPlugin = require('./../plugins/internal/ledsPlugin');
+var beepPlugin = require('./../plugins/internal/beepPlugin');
 
 router.route('/').get(function(req,res,next){
    res.send(resources.pi.actuators);
@@ -50,7 +51,7 @@ router.route('/beep/:id').put(function(req,res,next){
     switch(selectedBeep.value)
     {
         case 1:
-
+            beepPlugin.beepProxyHandleProcess(selectedBeep);
             break;
     }
 
