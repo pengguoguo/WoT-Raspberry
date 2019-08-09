@@ -8,6 +8,8 @@ var pressurelocalParams;
 
 var bmp280Pressure;
 
+var board;
+
 exports.start = function (params) {
     pressurelocalParams = params;
 
@@ -21,7 +23,7 @@ exports.stop = function(params) {
 function connectHardware(){
     var five  = require("johnny-five");
     var raspi = require("raspi-io").RaspiIO;
-    var board = new five.Board({
+    board = new five.Board({
         io:raspi()
     });
 };
