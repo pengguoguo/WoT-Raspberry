@@ -22,7 +22,7 @@ router.route('/leds/:id').get(function(req,res,next){
 
     req.value         = selectedLed;
 
-    switch(selectedLed.value)
+    switch(selectedLed.gpio)
     {
         case 26:
             ledsPlugin.ledproxy_process(selectedLed);
@@ -51,9 +51,9 @@ router.route('/beep/:id').put(function(req,res,next){
 
     console.info(selectedBeep);
 
-    switch(selectedBeep.value)
+    switch(selectedBeep.gpio)
     {
-        case 1:
+        case 7:
             console.info("beep actuators");
             beepPlugin.beepProxyHandleProcess(selectedBeep);
             break;

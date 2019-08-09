@@ -34,7 +34,7 @@
         "1": {
           "name": "buzze",
           "value": false,
-          "gpio": "12"
+          "gpio": "7"
         }
       }
     }
