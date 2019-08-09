@@ -12,7 +12,7 @@ var pcf8574Addr = 0x20;
 
 var pcf       = new PCF8574(i2cBus,pcf8574Addr,true);
 
-//pcf.outputPin(4,true,true);
+pcf.outputPin(4,true,true);
 pcf.outputPin(7,true,false);
 
 var actuator;
@@ -70,7 +70,7 @@ function connectHardware(){
         var led = new five.Led('P1-37');
         led.on();
 
-        //pcf.setPin(4,false);
+        pcf.setPin(4,true);
         pcf.setPin(7,true);
 
         });
