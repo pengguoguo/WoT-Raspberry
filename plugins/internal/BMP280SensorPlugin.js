@@ -31,10 +31,10 @@ function connectHardware(){
             controller:'BMP280'
         });
     });
-};
 
-bmp280Pressure.on("data",function () {
-    console.info(this.altitude);
-    console.info(this.pressure);
-    console.info(this.temperature);
-});
+    bmp280Pressure.on("data",function () {
+        console.info(this.altitude);
+        console.info(this.pressure);
+        console.info(this.temperature);
+    });
+};
