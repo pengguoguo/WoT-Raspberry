@@ -8,7 +8,7 @@ var beepPlugin = require('./plugins/internal/beepPlugin');
 
 ledsPlugin.start(1000);
 
-beepPlugin.start();
+//beepPlugin.start();
 
 var server     = httpServer.listen(resources.pi.port,function () {
     console.info('WoT Pi is up and running on port %s',resources.pi.port);
