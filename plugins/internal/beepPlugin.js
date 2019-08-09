@@ -38,7 +38,7 @@ exports.start = function(){
 
     beepProxy = new Proxy(model,beepProxyHandler);
 
-    ledProxy  = new Proxy(lcdModel,ledProxyHandler);
+    ledProxy  = new Proxy(ledModel,ledProxyHandler);
 
     connectHardware();
 };
