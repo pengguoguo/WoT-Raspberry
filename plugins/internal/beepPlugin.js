@@ -1,7 +1,10 @@
+///<reference path="../node_modules/pcf8574/typings/index.d.ts" />
+///<reference path="../node_modules/pcf8574/typings/ipcf8574.d.ts" />
+
 var resources = require('./../../resources/model');
 
 //var PCF8574   = require('pcf8574').PCF8574;
-import PCF8574 from 'pcf8574';
+import { PCF8574 } from 'pcf8574';
 
 var i2cBus    = require('i2c-bus').openSync(1);
 
