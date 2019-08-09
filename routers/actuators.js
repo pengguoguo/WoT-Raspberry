@@ -49,7 +49,7 @@ router.route('/beep/:id').put(function(req,res,next){
 
     var selectedBeep = resources.pi.actuators.beep[req.params.id];
 
-    console.info(selectedBeep);
+    console.info(selectedBeep.gpio);
 
     switch(selectedBeep.gpio)
     {
