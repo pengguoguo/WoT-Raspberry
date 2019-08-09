@@ -46,11 +46,13 @@ router.route('/beep/:id').get(function(req,res,next){
 });
 
 router.route('/beep/:id').put(function(req,res,next){
+
     var selectedBeep = resources.pi.actuators.beep[req.params.id];
 
     switch(selectedBeep.value)
     {
         case 1:
+            console.info("beep actuators");
             beepPlugin.beepProxyHandleProcess(selectedBeep);
             break;
     }
