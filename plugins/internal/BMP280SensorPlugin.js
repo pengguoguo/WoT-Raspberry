@@ -8,8 +8,6 @@ var pressurelocalParams;
 
 var bmp280Pressure;
 
-var board;
-
 exports.start = function (params) {
     pressurelocalParams = params;
 
@@ -23,19 +21,17 @@ exports.stop = function(params) {
 function connectHardware(){
     var five  = require('johnny-five');
     var raspi = require('raspi-io').RaspiIO;
-    board = new five.Board({
+    var board = new five.Board({
         io:new raspi(),
         repl:false
     });
-};
 
-board.on('ready',function(){
-    bmp280Pressure = new five.IMU({
-        controller:'BMP280'
+    board.on('ready',function(){
+        bmp280Pressure = new five.IMU({
+            controller:'BMP280'
+        });
     });
-
-
-});
+};
 
 bmp280Pressure.on("data",function () {
     console.info(this.altitude);
