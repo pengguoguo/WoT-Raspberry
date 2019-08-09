@@ -28,7 +28,9 @@ router.route('/leds/:id').get(function(req,res,next){
 
     console.info(req.params.id);
 
-    switch(req.params.id)
+    var ledid = req.params.id;
+
+    switch(ledid)
     {
         case 2:
             ledsPlugin.ledproxy_process(selectedLed);
@@ -36,7 +38,6 @@ router.route('/leds/:id').get(function(req,res,next){
         case  1:
             break;
     }
-
 
     next();
 });
