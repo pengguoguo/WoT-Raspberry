@@ -6,8 +6,6 @@ var pressurePluginName = resources.pi.sensors.pressure.name;
 
 var pressurelocalParams;
 
-var bmp280Pressure;
-
 exports.start = function (params) {
     pressurelocalParams = params;
 
@@ -27,7 +25,7 @@ function connectHardware(){
     });
 
     board.on('ready',function(){
-        bmp280Pressure = new five.IMU({
+        var bmp280Pressure = new five.IMU({
             controller:'BMP280'
         });
     });
