@@ -26,7 +26,7 @@ function connectHardware(){
         i2cAddress : BME280.BME280_DEFAULT_I2C_ADDRESS()
     };
 
-    bme280 = new BME280(options);
+    bme280 = new BME280();
 
     bme280.init()
         .then(() => {
