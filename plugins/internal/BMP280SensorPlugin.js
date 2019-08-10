@@ -20,13 +20,14 @@ function connectHardware(){
     var five  = require('johnny-five');
     var raspi = require('raspi-io').RaspiIO;
     var board = new five.Board({
-        io:new raspi(),
-        repl:false
+        io: new raspi(),
+        repl: false
     });
 
     board.on('ready',function(){
         var bmp280Pressure = new five.Altimeter({
-            controller:"BMP180",
+            controller:"BMP280",
+            address: 0x77,
             elevation:12
         });
 
