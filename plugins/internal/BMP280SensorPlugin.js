@@ -22,7 +22,7 @@ function connectHardware(){
     const options = {
         i2cBusNo : 1,
         i2cAddress : BME280.BME280_DEFAULT_I2C_ADDRESS()
-    }
+    };
 
     const bme280 = new BME280(options);
 
