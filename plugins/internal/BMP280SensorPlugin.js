@@ -25,14 +25,16 @@ function connectHardware(){
     });
 
     board.on('ready',function(){
-        var bmp280Pressure = new five.Barometer({
-            controller: 'BMP180'
+        var bmp280Pressure = new five.Altimeter({
+            controller: "BMP280",
+            elevation:12
         });
 
         bmp280Pressure.on("change",function () {
-            console.info(this.altitude);
-            console.info(this.pressure);
-            console.info(this.temperature);
+            console.info("Altimeter");
+            console.info(this.feet);
+            console.info(this.meters);
+            console.info("......................................");
         });
     });
 };
