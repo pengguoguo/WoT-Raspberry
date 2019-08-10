@@ -6,6 +6,8 @@ var pressurePluginName = resources.pi.sensors.pressure.name;
 
 var pressurelocalParams;
 
+var bme280;
+
 exports.start = function (params) {
     pressurelocalParams = params;
 
@@ -24,17 +26,7 @@ function connectHardware(){
         i2cAddress : BME280.BME280_DEFAULT_I2C_ADDRESS()
     };
 
-    const bme280 = new BME280(options);
-
-    const readSensorData = () => {
-        bme280.readSensorData()
-            .then((data) => {
-                data.temperature_F = BME280.convertCelciusToFahrenheit(data.temperature_F);
-                data.pressure_inHg = BME280.convertHectopascalToInchesOfMercury(data.pressure_inHg);
-                console.log('data = ${JSON.stringify(data,null,2)}');
-                setTimeout(readSensorData,2000);
-                });
-    };
+    bme280 = new BME280(options);
 
     bme280.init()
         .then(() => {
@@ -42,4 +34,18 @@ function connectHardware(){
         readSensorData();
         })
         .catch((err) =>console.error('BME280 initialization failed:${err}'));
+};
+
+const readSensorData = () => {
+    bme280.readSensorData()
+        .then((data) => {
+            data.temperature_F = BME280.convertCelciusToFahrenheit(data.temperature_C);
+            data.pressure_inHg = BME280.convertHectopascalToInchesOfMercury(data.pressure_hPa);
+            console.log('data = ${JSON.stringify(data,null,2)}');
+            setTimeout(readSensorData,2000);
+        })
+        .catch((err) => {
+            console.log('BME280 read error: ${err}');
+            setTimeout(readSensorData,2000);
+        });
 };
