@@ -26,7 +26,7 @@ function connectHardware(){
 
     board.on('ready',function(){
         var bmp280Pressure = new five.Altimeter({
-            controller:"BMP280",
+            controller:"BMP180",
             elevation:12
         });
 
