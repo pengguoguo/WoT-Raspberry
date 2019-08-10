@@ -17,25 +17,29 @@ exports.stop = function(params) {
 };
 
 function connectHardware(){
-    var five  = require('johnny-five');
-    var raspi = require('raspi-io').RaspiIO;
-    var board = new five.Board({
-        io: new raspi(),
-        repl: false
-    });
+    const BME280 = require('bme280-sensor');
 
-    board.on('ready',function(){
-        var bmp280Pressure = new five.Altimeter({
-            controller:"BMP280",
-            address: 0x77,
-            elevation:12
-        });
+    const options = {
+        i2cBusNo : 1,
+        i2cAddress : BME280.BME280_DEFAULT_I2C_ADDRESS()
+    }
 
-        bmp280Pressure.on("change",function () {
-            console.info("Altimeter");
-            console.info(this.feet);
-            console.info(this.meters);
-            console.info("......................................");
-        });
-    });
+    const bme280 = new BME280(options);
+
+    const readSensorData = () => {
+        bme280.readSensorData()
+            .then((data) => {
+                data.temperature_F = BME280.convertCelciusToFahrenheit(data.temperature_F);
+                data.pressure_inHg = BME280.convertHectopascalToInchesOfMercury(data.pressure_inHg);
+                console.log('data = ${JSON.stringify(data,null,2)}');
+                setTimeout(readSensorData,2000);
+                });
+    };
+
+    bme280.init()
+        .then(() => {
+        console.log('BME280 initialization succeeded');
+        readSensorData();
+        })
+        .catch((err) =>console.error('BME280 initialization failed:${err}'));
 };
