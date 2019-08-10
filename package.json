@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/pengguoguo/WoT-Raspberry#readme",
   "dependencies": {
-    "bme280-sensor": "^0.1.6",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "johnny-five": "^1.2.0",
