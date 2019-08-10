@@ -5,14 +5,20 @@
     "port": 18888,
     "sensors": {
       "pressure": {
-        "name": "BMP280 Digital Pressure Sensor",
-        "description": "An absolute barometric pressure sensor especially designed for mobile applications.",
+        "name": "BMP180 Digital Pressure Sensor",
+        "description": "new generation of high precision digital pressure sensors for consumer applications.",
         "unit": "Pa",
         "value": 0
       },
+      "altitude": {
+        "name": "BMP180 Digital Pressure Sensor",
+        "description": "new generation of high precision digital pressure sensors for consumer applications.",
+        "unit": "h",
+        "value": 0
+      },
       "temperature": {
-        "name": "BMP280 Digital Pressure Sensor",
-        "description": "An absolute barometric pressure sensor especially designed for mobile applications.",
+        "name": "BMP180 Digital Pressure Sensor",
+        "description": "new generation of high\nprecision digital pressure sensors for consumer applications.",
         "unit": "DegC",
         "value": 0
       }
