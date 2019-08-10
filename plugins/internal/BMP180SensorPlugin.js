@@ -21,7 +21,7 @@ function connectHardware(){
     var Raspi = require('raspi-io').RaspiIO;
     var board = new five.Board({
         io: new Raspi(),
-        Repl: false
+        repl: false
     });
 
     board.on('ready',() => {
