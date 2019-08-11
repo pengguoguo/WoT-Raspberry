@@ -21,7 +21,9 @@ function connectHardware(){
     var five  = require('johnny-five');
     var Raspi = require('raspi-io').RaspiIO;
     var board = new five.Board({
-        io: new Raspi(),
+        io: new Raspi({
+            enableI2C:true
+        }),
         repl: false
     });
 
