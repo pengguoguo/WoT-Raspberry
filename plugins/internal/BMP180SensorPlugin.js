@@ -27,7 +27,7 @@ function connectHardware(){
         repl: false
     });
 
-    board.on('ready',() => {
+    board.on('ready',function(){
 
         console.info("board.on.ready");
 
