@@ -11,7 +11,9 @@ ledsPlugin.start(1000);
 
 beepPlugin.start();
 
-setTimeout(2000,bmp180PressurePlugin.start());
+setTimeout(function () {
+    bmp180PressurePlugin.start();
+},2000);
 
 var server     = httpServer.listen(resources.pi.port,function () {
     console.info('WoT Pi is up and running on port %s',resources.pi.port);
