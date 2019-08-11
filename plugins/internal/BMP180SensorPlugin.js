@@ -25,24 +25,24 @@ function connectHardware(){
     });
 
     board.on('ready',() => {
-        var bmp180Multi = new five.Multi({
-            controller: "BMP180"
+        var bmp180Multi = new five.IMU({
+            controller: "BMP180",
+            elevation:12,
+            freq:100,
+
         });
 
         bmp180Multi.on("changer",function(){
             console.log("Thermometer");
-            console.log("  celsius      : ", this.thermometer.celsius);
-            console.log("  fahrenheit   : ", this.thermometer.fahrenheit);
-            console.log("  kelvin       : ", this.thermometer.kelvin);
+            console.log("  celsius      : ", this.computed.temperature);
             console.log("--------------------------------------");
 
             console.log("Barometer");
-            console.log("  pressure     : ", this.barometer.pressure);
+            console.log("  pressure     : ", this.computed.pressure);
             console.log("--------------------------------------");
 
             console.log("Altimeter");
-            console.log("  feet         : ", this.altimeter.feet);
-            console.log("  meters       : ", this.altimeter.meters);
+            console.log("  feet         : ", this.computed.altitude);
             console.log("--------------------------------------");
         })
     });
