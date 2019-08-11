@@ -17,7 +17,6 @@ exports.start = function (params) {
 
     connectHardware();
 
-
     setInterval(function () {
         readBmp180();
     },2000);
@@ -45,7 +44,7 @@ async function readBmp180(){
 
     var altitude = 44330 * (1 - Math.pow((pressureModel.value / 101325.0),(1.0 / 5.255)));
 
-    altitudeModel.value = altitude;
+    altitudeModel.value = altitude.toFixed(2);
 
     temperatureModel.value   = data.temperature;
 
