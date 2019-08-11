@@ -31,24 +31,14 @@ function connectHardware(){
 
         console.info("board.on.ready");
 
-        var bmp180Multi = new five.IMU({
+        var bmp180Multi = new five.Altimeter({
             controller: "BMP180",
-            elevation:12,
-            freq:100,
-
         });
 
         bmp180Multi.on("changer",function(){
-            console.log("Thermometer");
-            console.log("  celsius      : ", this.computed.temperature);
-            console.log("--------------------------------------");
-
-            console.log("Barometer");
-            console.log("  pressure     : ", this.computed.pressure);
-            console.log("--------------------------------------");
-
             console.log("Altimeter");
-            console.log("  feet         : ", this.computed.altitude);
+            console.log("  feet         : ", this.feet);
+            console.log("  meters       : ", this.meters);
             console.log("--------------------------------------");
         })
     });
