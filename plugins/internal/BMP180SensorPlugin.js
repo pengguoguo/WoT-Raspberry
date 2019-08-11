@@ -2,6 +2,8 @@ var resources = require('./../../resources/model');
 
 var pressureModel = resources.pi.sensors.pressure;
 
+var temperatureModel = resources.pi.sensors.temperature;
+
 var pressurePluginName = resources.pi.sensors.pressure.name;
 
 var bmp180 = require('bmp180-sensor');
@@ -35,7 +37,11 @@ async function readBmp180(){
 
     const data = await sensor.read();
 
-    console.log(data)
+    console.log(data);
+
+    pressureModel.value = data.pressure;
+
+    temperatureModel.value   = data.temperature;
 
     await sensor.close();
 };
