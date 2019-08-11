@@ -7,9 +7,9 @@ var ledsPlugin = require('./plugins/internal/ledsPlugin');
 var beepPlugin = require('./plugins/internal/beepPlugin');
 var bmp180PressurePlugin = require('./plugins/internal/BMP180SensorPlugin');
 
-ledsPlugin.start(1000);
+//ledsPlugin.start(1000);
 
-beepPlugin.start();
+//beepPlugin.start();
 
 bmp180PressurePlugin.start();
 
