@@ -4,6 +4,8 @@ var pressureModel = resources.pi.sensors.pressure;
 
 var temperatureModel = resources.pi.sensors.temperature;
 
+var altitudeModel = resources.pi.sensors.altitude;
+
 var pressurePluginName = resources.pi.sensors.pressure.name;
 
 var bmp180 = require('bmp180-sensor');
@@ -39,7 +41,11 @@ async function readBmp180(){
 
     console.log(data);
 
-    pressureModel.value = data.pressure;
+    pressureModel.value = data.pressure.toFixed(2);
+
+    var altitude = 44330 * (1 - power((pressureModel.value / 101325.0),(1.0 / 5.255)));
+
+    altitudeModel.value = altitude;
 
     temperatureModel.value   = data.temperature;
 
