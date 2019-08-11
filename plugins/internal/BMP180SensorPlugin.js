@@ -13,7 +13,10 @@ exports.start = function (params) {
 
     connectHardware();
 
-    readBmp180();
+
+    setInterval(function () {
+        readBmp180();
+    },2000);
 };
 
 exports.stop = function(params) {
@@ -30,7 +33,7 @@ async function readBmp180(){
         mode: 1,
     })
 
-    const data = await sensor.read()
+    const data = await sensor.read();
 
     console.log(data)
 
