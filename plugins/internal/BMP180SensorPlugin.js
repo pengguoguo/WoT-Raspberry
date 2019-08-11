@@ -6,8 +6,6 @@ var pressurePluginName = resources.pi.sensors.pressure.name;
 
 var bmp180 = require('bmp180-sensor');
 
-var bmp180Sensor;
-
 var pressurelocalParams;
 
 exports.start = function (params) {
@@ -23,13 +21,18 @@ exports.stop = function(params) {
 };
 
 function connectHardware(){
-    bmp180Sensor = await bmp180({
-        address: 0x77,
-        mode: 1,
-    })
+    readBmp180();
 };
 
 async function readBmp180(){
-    const data = await bmp180Sensor.read();
-    console.log(data);
+    const sensor = await bmp180({
+        address: 0x77,
+        mode: 1,
+    })
+
+    const data = await sensor.read()
+
+    console.log(data)
+
+    await sensor.close();
 };
