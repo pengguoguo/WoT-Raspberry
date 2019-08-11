@@ -17,6 +17,7 @@ exports.stop = function(params) {
 };
 
 function connectHardware(){
+
     var five  = require('johnny-five');
     var Raspi = require('raspi-io').RaspiIO;
     var board = new five.Board({
@@ -25,6 +26,9 @@ function connectHardware(){
     });
 
     board.on('ready',() => {
+
+        console.info("board.on.ready");
+
         var bmp180Multi = new five.IMU({
             controller: "BMP180",
             elevation:12,
