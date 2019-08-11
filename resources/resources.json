@@ -18,7 +18,7 @@
       },
       "temperature": {
         "name": "BMP180 Digital Pressure Sensor",
-        "description": "new generation of high\nprecision digital pressure sensors for consumer applications.",
+        "description": "new generation of high precision digital pressure sensors for consumer applications.",
         "unit": "DegC",
         "value": 0
       }

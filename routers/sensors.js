@@ -10,6 +10,10 @@ router.route('/pressure').get(function(req,res,next){
    res.send(resources.pi.sensors.pressure);
 });
 
+router.route('/altitude').get(function (req,res,next) {
+    res.send(resources.pi.sensors.altitude);
+})
+
 router.route('/temperature').get(function(req,res,next){
    res.send(resources.pi.sensors.temperature);
 });
