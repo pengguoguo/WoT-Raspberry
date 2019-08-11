@@ -60,26 +60,6 @@ exports.ledProxyHandleProcess = function(params){
 
 function connectHardware(){
 
-    //const RaspiIO = require('raspi-io').RaspiIO;
-
-    //const five    = require('johnny-five');
-
-    //const board = new five.Board({
-    //    io: new RaspiIO(),
-    //    repl:false
-    //});
-
-    //board.on('ready',function() {
-
-    //    console.info("RaspiIO board is ready");
-
-        //var led = new five.Led('P1-37');
-        //led.on();
-
-        //pcf.setPin(4,true);
-
-    //    });
-
     var PCF8574     = require('pcf8574').PCF8574;
 
     var i2cBus      = require('i2c-bus').openSync(1);

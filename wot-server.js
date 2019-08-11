@@ -3,13 +3,15 @@ var resources  = require('./resources/model');
 
 
 //Internal plugins
-//var ledsPlugin = require('./plugins/internal/ledsPlugin');
-//var beepPlugin = require('./plugins/internal/beepPlugin');
+var ledsPlugin = require('./plugins/internal/ledsPlugin');
+var beepPlugin = require('./plugins/internal/beepPlugin');
 var bmp180PressurePlugin = require('./plugins/internal/BMP180SensorPlugin');
 
-//ledsPlugin.start(1000);
+ledsPlugin.start(1000);
 
-//beepPlugin.start();
+beepPlugin.start();
+
+setTimeout(2000);
 
 bmp180PressurePlugin.start();
 
