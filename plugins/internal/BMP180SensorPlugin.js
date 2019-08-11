@@ -31,14 +31,13 @@ function connectHardware(){
 
         console.info("board.on.ready");
 
-        var bmp180Multi = new five.Altimeter({
+        var bmp180Multi = new five.Barometer({
             controller: "BMP180",
         });
 
         bmp180Multi.on("changer",function(){
-            console.log("Altimeter");
-            console.log("  feet         : ", this.feet);
-            console.log("  meters       : ", this.meters);
+            console.log("Barometer");
+            console.log("  pressure     : ", this.pressure);
             console.log("--------------------------------------");
         })
     });
