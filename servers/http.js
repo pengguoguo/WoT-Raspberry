@@ -18,7 +18,6 @@ app.use('/pi/actuators',actuatorsRoutes);
 
 
 app.get('/',routers.index);
-;
 
 // Create Routes
 //app.use('/', routesCreator.create(resources));
