@@ -17,7 +17,7 @@ app.use('/pi/actuators',actuatorsRoutes);
 
 
 app.get('/',function (req,res) {
-    res.sendfile("../views/index.html");
+    //res.sendfile("../views/index.html");
 });
 
 // Create Routes
