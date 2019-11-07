@@ -9,13 +9,15 @@ var bodyParser      = require('body-parser');
 
 var app             = express();
 
+app.set('view engine','ejs');
+
 app.use(bodyParser.json());
 
 app.use(cors());
 
 app.use('/pi/sensors',sensorRouters);
 app.use('/pi/actuators',actuatorsRoutes);
-
+app.use(app.router);
 
 app.get('/',routers.index);
 
