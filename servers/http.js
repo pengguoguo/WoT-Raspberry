@@ -1,5 +1,6 @@
 var express         = require('express');
-var routesCreator   = require('./../routers/routerCreator');
+//var routesCreator   = require('./../routers/routerCreator');
+var routers         = require('./../routers');
 var actuatorsRoutes = require('./../routers/actuators');
 var sensorRouters   = require('./../routers/sensors');
 var resources       = require('./../resources/model');
@@ -16,9 +17,8 @@ app.use('/pi/sensors',sensorRouters);
 app.use('/pi/actuators',actuatorsRoutes);
 
 
-app.get('/',function (req,res) {
-    //res.sendfile("../views/index.html");
-});
+app.get('/',routers.index);
+;
 
 // Create Routes
 //app.use('/', routesCreator.create(resources));
